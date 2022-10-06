@@ -15,6 +15,11 @@ void main() {
         primarySwatch: Colors.blue,
       ),
       home: const HomePage(),
+      //create a route between login and register view
+      routes: {
+        '/login/': (context) => const LoginView(),
+        '/register/': (context) => const RegisterView(),
+      },
     ),
   );
 }
