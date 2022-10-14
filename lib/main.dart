@@ -1,4 +1,6 @@
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:mynotes/constants/routes.dart';
 import 'package:mynotes/services/auth/auth_service.dart';
 import 'package:mynotes/views/login_view.dart';
@@ -6,6 +8,7 @@ import 'package:mynotes/views/notes/create_update_note_view.dart';
 import 'package:mynotes/views/notes/notes_view.dart';
 import 'package:mynotes/views/register_view.dart';
 import 'package:mynotes/views/verify_email_view.dart';
+import 'package:page_transition/page_transition.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,7 +18,7 @@ void main() {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
+      home: const SplashScreen(),
       routes: {
         loginRoute: (context) => const LoginView(),
         registerRoute: (context) => const RegisterView(),
@@ -25,6 +28,37 @@ void main() {
       },
     ),
   );
+}
+
+class SplashScreen extends StatelessWidget {
+  const SplashScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedSplashScreen(
+      splash: Lottie.asset('assets/icon/lottie.json'),
+      // Column(
+      //   children: [
+      //     Image.asset('assets/icon/icon_transparent.png'),
+      //     const Text(
+      //       'My Notes',
+      //       style: TextStyle(
+      //         fontSize: 40,
+      //         fontWeight: FontWeight.bold,
+      //         color: Colors.white,
+      //       ),
+      //     )
+      //   ],
+      // ),
+      backgroundColor: Color(0xFF97C4B8),
+      nextScreen: const HomePage(),
+      splashIconSize: 330,
+      duration: 3000,
+      splashTransition: SplashTransition.slideTransition,
+      pageTransitionType: PageTransitionType.leftToRightWithFade,
+      animationDuration: const Duration(seconds: 1),
+    );
+  }
 }
 
 class HomePage extends StatelessWidget {
