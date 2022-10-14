@@ -43,6 +43,12 @@ dependencies:
   sqflite: ^2.1.0+1
   path_provider: ^2.0.11
   path: ^1.8.2
+  flutter_launcher_icons: ^0.10.0
+  flutter_native_splash: ^2.2.11
+
+flutter_native_splash:
+  color: "#F9F3EE"
+  image: assets/icon/icon.png
 
 dev_dependencies:
   flutter_test:
