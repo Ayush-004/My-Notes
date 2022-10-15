@@ -9,15 +9,16 @@ import 'package:mynotes/views/notes/notes_view.dart';
 import 'package:mynotes/views/register_view.dart';
 import 'package:mynotes/views/verify_email_view.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
     MaterialApp(
+      theme: FlexThemeData.light(scheme: FlexScheme.mandyRed),
+      // The Mandy red, dark theme. ,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+
       home: const SplashScreen(),
       routes: {
         loginRoute: (context) => const LoginView(),
@@ -37,23 +38,10 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
       splash: Lottie.asset('assets/icon/lottie.json'),
-      // Column(
-      //   children: [
-      //     Image.asset('assets/icon/icon_transparent.png'),
-      //     const Text(
-      //       'My Notes',
-      //       style: TextStyle(
-      //         fontSize: 40,
-      //         fontWeight: FontWeight.bold,
-      //         color: Colors.white,
-      //       ),
-      //     )
-      //   ],
-      // ),
-      backgroundColor: Color(0xFF97C4B8),
+      backgroundColor: Colors.black87,
       nextScreen: const HomePage(),
       splashIconSize: 330,
-      duration: 3000,
+      duration: 1000,
       splashTransition: SplashTransition.slideTransition,
       pageTransitionType: PageTransitionType.leftToRightWithFade,
       animationDuration: const Duration(seconds: 1),

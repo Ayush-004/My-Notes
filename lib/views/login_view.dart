@@ -1,7 +1,13 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mynotes/constants/routes.dart';
 import 'package:mynotes/services/auth/auth_exceptions.dart';
 import 'package:mynotes/services/auth/auth_service.dart';
+import 'package:mynotes/services/auth/firebase_auth_provider.dart';
+import 'package:mynotes/views/notes/notes_view.dart';
+import 'package:mynotes/views/register_view.dart';
+import 'package:mynotes/views/verify_email_view.dart';
+import 'package:page_transition/page_transition.dart';
 
 import '../utilities/dialogs/error_dialog.dart';
 
@@ -34,7 +40,13 @@ class _LoginViewState extends State<LoginView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login'),
+        title: const Text(
+          'Login',
+          style: TextStyle(
+            fontFamily: 'OpenSansBold',
+            fontSize: 25,
+          ),
+        ),
       ),
       body: Column(
         children: [
@@ -68,14 +80,20 @@ class _LoginViewState extends State<LoginView> {
                 final user = AuthService.firebase().currentUser;
                 if (user?.isEmailVerified ?? false) {
                   // user's email is verified
-                  Navigator.of(context).pushNamedAndRemoveUntil(
-                    notesRoute,
+                  Navigator.of(context).pushAndRemoveUntil(
+                    PageTransition(
+                      child: const NotesView(),
+                      type: PageTransitionType.leftToRight,
+                    ),
                     (route) => false,
                   );
                 } else {
                   // user's email is NOT verified
-                  Navigator.of(context).pushNamedAndRemoveUntil(
-                    verifyEmailRoute,
+                  Navigator.of(context).pushAndRemoveUntil(
+                    PageTransition(
+                      child: const VerifyEmailView(),
+                      type: PageTransitionType.leftToRight,
+                    ),
                     (route) => false,
                   );
                 }
@@ -96,16 +114,31 @@ class _LoginViewState extends State<LoginView> {
                 );
               }
             },
-            child: const Text('Login'),
+            child: const Text(
+              'Login',
+              style: TextStyle(
+                  fontWeight: FontWeight.w900,
+                  fontFamily: 'OpenSans',
+                  fontSize: 20),
+            ),
           ),
           TextButton(
             onPressed: () {
-              Navigator.of(context).pushNamedAndRemoveUntil(
-                registerRoute,
+              Navigator.of(context).pushAndRemoveUntil(
+                PageTransition(
+                  child: const RegisterView(),
+                  type: PageTransitionType.leftToRight,
+                ),
                 (route) => false,
               );
             },
-            child: const Text('Not registered yet? Register here!'),
+            child: const Text(
+              'Not registered yet? Register here!',
+              style: TextStyle(
+                  fontWeight: FontWeight.w800,
+                  fontFamily: 'OpenSans',
+                  fontSize: 15),
+            ),
           )
         ],
       ),

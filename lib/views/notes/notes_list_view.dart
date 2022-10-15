@@ -2,6 +2,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:mynotes/utilities/dialogs/delete_dialog.dart';
+import 'package:path/path.dart';
 
 import '../../services/crud/notes_service.dart';
 
@@ -30,6 +31,9 @@ class NotesListView extends StatelessWidget {
             onTap(note);
           },
           title: Text(
+            style: TextStyle(
+              fontFamily: 'OpenSans',
+            ),
             note.text,
             maxLines: 1,
             softWrap: true,

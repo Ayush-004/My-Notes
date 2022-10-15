@@ -95,7 +95,13 @@ class _CreateUpdateNoteViewState extends State<CreateUpdateNoteView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('New Note'),
+        title: const Text(
+          'New Note',
+          style: TextStyle(
+              fontFamily: 'OpenSans',
+              fontSize: 15,
+              fontWeight: FontWeight.w700),
+        ),
       ),
       body: FutureBuilder(
         future: createOrGetExistingNote(context),

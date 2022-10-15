@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:mynotes/constants/routes.dart';
 import 'package:mynotes/services/auth/auth_exceptions.dart';
 import 'package:mynotes/services/auth/auth_service.dart';
+import 'package:mynotes/views/login_view.dart';
+import 'package:mynotes/views/verify_email_view.dart';
+import 'package:page_transition/page_transition.dart';
 
 import '../utilities/dialogs/error_dialog.dart';
 
@@ -34,7 +37,13 @@ class _RegisterViewState extends State<RegisterView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Register'),
+        title: const Text(
+          'Register',
+          style: TextStyle(
+            fontFamily: 'OpenSansBold',
+            fontSize: 25,
+          ),
+        ),
       ),
       body: Column(
         children: [
@@ -66,7 +75,12 @@ class _RegisterViewState extends State<RegisterView> {
                   password: password,
                 );
                 AuthService.firebase().sendEmailVerification();
-                Navigator.of(context).pushNamed(verifyEmailRoute);
+                Navigator.of(context).push(
+                  PageTransition(
+                    child: const VerifyEmailView(),
+                    type: PageTransitionType.leftToRight,
+                  ),
+                );
               } on WeakPasswordAuthException {
                 await showErrorDialog(
                   context,
@@ -89,16 +103,31 @@ class _RegisterViewState extends State<RegisterView> {
                 );
               }
             },
-            child: const Text('Register'),
+            child: const Text(
+              'Register',
+              style: TextStyle(
+                  fontFamily: 'OpenSans',
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold),
+            ),
           ),
           TextButton(
             onPressed: () {
-              Navigator.of(context).pushNamedAndRemoveUntil(
-                loginRoute,
+              Navigator.of(context).pushAndRemoveUntil(
+                PageTransition(
+                  child: const LoginView(),
+                  type: PageTransitionType.leftToRight,
+                ),
                 (route) => false,
               );
             },
-            child: const Text('Already registered? Login here!'),
+            child: const Text(
+              'Already registered? Login here!',
+              style: TextStyle(
+                  fontFamily: 'OpenSans',
+                  fontSize: 15,
+                  fontWeight: FontWeight.w700),
+            ),
           )
         ],
       ),

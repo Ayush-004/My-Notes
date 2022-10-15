@@ -3,9 +3,7 @@ import 'package:mynotes/firebase_options.dart';
 import 'package:mynotes/services/auth/auth_user.dart';
 import 'package:mynotes/services/auth/auth_provider.dart';
 import 'package:mynotes/services/auth/auth_exceptions.dart';
-
-import 'package:firebase_auth/firebase_auth.dart'
-    show FirebaseAuth, FirebaseAuthException;
+import 'package:firebase_auth/firebase_auth.dart';
 
 class FirebaseAuthProvider implements AuthProvider {
   @override
@@ -84,6 +82,35 @@ class FirebaseAuthProvider implements AuthProvider {
       throw GenericAuthException();
     }
   }
+
+  // @override
+  // Future<void> signInWithGoogle(BuildContext context) async {
+  //   try {
+  //     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+  //     final GoogleSignInAuthentication? googleAuth =
+  //         await googleUser?.authentication;
+
+  //     if (googleAuth?.accessToken != null && googleAuth?.idToken != null) {
+  //       final credential = GoogleAuthProvider.credential(
+  //         accessToken: googleAuth?.accessToken,
+  //         idToken: googleAuth?.idToken,
+  //       );
+  //       UserCredential userCredential =
+  //           await FirebaseAuth.instance.signInWithCredential(credential);
+  //     }
+  //   } on FirebaseAuthException catch (e) {
+  //     showGenericDialog(
+  //       context: context,
+  //       title: 'Some error occurred',
+  //       content: 'Cant sign in',
+  //       optionsBuilder: () => {
+  //         'Cancel': false,
+  //         'Sign out': true,
+  //       },
+  //     );
+  //   }
+  // }
 
   @override
   Future<void> logOut() async {
