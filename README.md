@@ -55,16 +55,4 @@ App Icon
 Fonts
 Lottie Animations
 
-The course I followed taught me a lot of things. From creating and developing my first app to being able to complete a course, I took it dedicatedly and consistently every day. Flutter was the first thing I genuinely enjoyed doing in development and not doing for its sake.
-I started to follow this course a little more than three weeks ago. One of the first challenges I faced was some concepts of Object Oriented Programming, like constructors, custom operators, overriding methods, @immutable, extensions, etc.
-AuthService:
-I faced significant challenges when I started to code the backend for the authentication and notes to work and connect. Initially, everything felt very abstract when things started, and I had a hard time understanding why we were doing certain things and how they were implemented. 
-After getting the hang of things, I tried to implement Google Sign In, and I could sign in using google. Still, I couldn't make it mesh with the other parts of my application, which resulted in my app crashing whenever I signed in with google.
 
-
-CRUD local storage:
- This was something entirely new for me, and again at the beginning, I couldn't understand why we were doing things the way they were. Sometimes I couldn't understand a particular concept's true meaning, but I assumed it to be something and moved on. And then, later on, in the course, I realised what that meant. This course taught me patience and googling stuff. I learned a lot of things on the go. The most challenging portion of the course for me was the backend development part, where I couldn't significantly see the advancements in my application as it just layed the groundwork for everything to work, and it seemed challenging to me at the same time.
-I still have some gaps in my knowledge, which I will be able to fill properly once I rewatch the course, as I will be able to understand each thing better and its intent. 
-
-I enjoyed the journey, it felt really good to have a goal for which you did something every day, and you could track how many hours you did each day. And I had started to respect the many things that the software I use daily was able to do.
-The course not only taught me how to learn Flutter, it also tried to teach me how to be a good Software Developer, and I will continue this journey to where it leads.
